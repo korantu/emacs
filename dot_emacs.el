@@ -9,11 +9,14 @@
 
 ;; Key bindings.
 (global-set-key (kbd "C-z") 'undo)
-
+(global-set-key "\M-`" 'hippie-expand)
 ;; Browser
 (setq 
  browse-url-browser-function 'browse-url-generic 
  browse-url-generic-program "chromium-browser") 
+
+;;TODO
+;; JavaScript check: http://www.emacswiki.org/emacs/FlyMake#toc9
 
 ;; Github-specific part:
 

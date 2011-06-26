@@ -2,7 +2,9 @@
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
-(toggle-uniquify-buffer-names 1) ; Proper biffer naming.
+
+; Proper buffer naming: http://www.emacswiki.org/emacs/uniquify
+(toggle-uniquify-buffer-names 1) 
 
 ;; Color settings. 
 (ansi-color-for-comint-mode-on)

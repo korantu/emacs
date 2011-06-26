@@ -2,6 +2,7 @@
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
+(toggle-uniquify-buffer-names 1) ; Proper biffer naming.
 
 ;; Color settings. 
 (ansi-color-for-comint-mode-on)

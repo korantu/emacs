@@ -3,6 +3,13 @@
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
 
+;; Niceties
+(global-font-lock-mode 1)
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(setq make-backup-files nil) ;; Dangerous, but neat.
+(message "Backups are disbled, take note.")
+
 ; Proper buffer naming: http://www.emacswiki.org/emacs/uniquify
 (toggle-uniquify-buffer-names 1) 
 

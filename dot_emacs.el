@@ -46,6 +46,6 @@
 (defun kdl-test ()
   "Defun test"
   (interactive)
-  (message "Hi?"))
+  (message "Hi!"))
 
 (message "Dot-emacs loading complete.")

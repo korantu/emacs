@@ -37,12 +37,15 @@
   (interactive)
   ( let
       ((script (concat "wget -O ~/.emacs " dot-emacs-at-github)))
-  (shell-command script)))
+  (shell-command script))
+  (load-library "~/.emacs")
+  (message "Sync completed.")
+)
 
 ;; This is how functions are done.
 (defun kdl-test ()
   "Defun test"
   (interactive)
-  (message "hi"))
+  (message "Hi?"))
 
-
+(message "Dot-emacs loading complete.")

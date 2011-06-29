@@ -3,6 +3,11 @@
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
 
+;; Interactively Do Things: 
+;; http://www.emacswiki.org/emacs/InteractivelyDoThings
+(require 'ido)
+(ido-mode 1)
+
 ;; Niceties
 (global-font-lock-mode 1)
 (fset 'yes-or-no-p 'y-or-n-p)

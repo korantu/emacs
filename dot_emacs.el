@@ -3,6 +3,18 @@
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
 
+;; Interactively Do Things: 
+;; http://www.emacswiki.org/emacs/InteractivelyDoThings
+(require 'ido)
+(ido-mode 1)
+
+;; Niceties
+(global-font-lock-mode 1)
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(setq make-backup-files nil) ;; Dangerous, but neat.
+(message "Backups are disbled, take note.")
+
 ; Proper buffer naming: http://www.emacswiki.org/emacs/uniquify
 (toggle-uniquify-buffer-names 1) 
 
@@ -41,12 +53,15 @@
   (interactive)
   ( let
       ((script (concat "wget -O ~/.emacs " dot-emacs-at-github)))
-  (shell-command script)))
+  (shell-command script))
+  (load-library "~/.emacs")
+  (message "Sync completed.")
+)
 
 ;; This is how functions are done.
 (defun kdl-test ()
   "Defun test"
   (interactive)
-  (message "hi"))
+  (message "Hi!"))
 
-
+(message "Dot-emacs loading complete.")

@@ -15,6 +15,15 @@
 (global-set-key "\M-`" 'hippie-expand)
 (global-set-key "\M-g" 'goto-line)
 
+;; hs-mode: http://www.emacswiki.org/emacs/HideShow
+(global-set-key (kbd "C-+") 'hs-toggle-hiding)
+(global-set-key (kbd "C-\\") 'hs-hide-all)
+    (add-hook 'c-mode-common-hook   'hs-minor-mode)
+    (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
+    (add-hook 'java-mode-hook       'hs-minor-mode)
+    (add-hook 'js-mode-hook       'hs-minor-mode)
+    (add-hook 'lisp-mode-hook       'hs-minor-mode)
+
 ;; Browser
 (setq 
  browse-url-browser-function 'browse-url-generic 

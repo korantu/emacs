@@ -13,6 +13,8 @@
 ;; Key bindings.
 (global-set-key (kbd "C-z") 'undo)
 (global-set-key "\M-`" 'hippie-expand)
+(global-set-key "\M-g" 'goto-line)
+
 ;; Browser
 (setq 
  browse-url-browser-function 'browse-url-generic 

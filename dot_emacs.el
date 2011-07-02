@@ -43,6 +43,22 @@
 
 ;;TODO
 ;; JavaScript check: http://www.emacswiki.org/emacs/FlyMake#toc9
+(setq js-v8-shell "/home/kdl/tools/v8/d8")
+
+(when (load "flymake" t)
+  (defun flymake-closure-init ()
+    (let* ((temp-file (flymake-init-create-temp-buffer-copy
+		       'flymake-create-temp-inplace))
+           (local-file (file-relative-name
+                        temp-file
+                        (file-name-directory buffer-file-name))))
+      (list js-v8-shell (list local-file))))
+    
+  (add-to-list 'flymake-allowed-file-name-masks
+               '("\\.js\\'" flymake-closure-init)))
+
+;; Load it for javascript.
+(add-hook 'js-mode-hook 'flymake-mode)
 
 ;; Github-specific part:
 

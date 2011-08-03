@@ -38,8 +38,12 @@
 
 ;; Browser
 (setq 
- browse-url-browser-function 'browse-url-generic 
- browse-url-generic-program "chromium-browser") 
+ browse-url-browser-function 'browse-url-generic)
+;; Choose one that exists here; Low to high priority.
+(mapc (lambda (browser)  
+	(if browser (setq browse-url-generic-program browser)))
+      (mapcar (lambda (f) (locate-file f exec-path))
+	      '("firefox" "chrome" "chromium-browser")))
 
 ;;TODO
 ;; JavaScript check: http://www.emacswiki.org/emacs/FlyMake#toc9

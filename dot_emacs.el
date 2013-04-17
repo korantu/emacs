@@ -24,7 +24,7 @@
 
 ;; Key bindings.
 (global-set-key (kbd "C-z") 'undo)
-(global-set-key "\M-`" 'hippie-expand)
+(global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-g" 'goto-line)
 
 ;; hs-mode: http://www.emacswiki.org/emacs/HideShow
@@ -64,8 +64,24 @@
 ;; Load it for javascript.
 (add-hook 'js-mode-hook 'flymake-mode)
 
-;; Github-specific part:
+;; Autocomplete
+;; http://cx4a.org/software/auto-complete/manual.html#Installation
+;; Downloaded from http://cx4a.org/software/auto-complete/index.html
+;; installed by (load-file "~/log/golang/emacs-autocomplete/auto-complete-1.3.1/etc/install.el")
 
+(add-to-list 'load-path "~/.emacs.d/")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d//ac-dict")
+(ac-config-default)
+
+;; gocode autocomplete
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+
+;; go highlighting
+(require 'go-mode-load)
+
+;; Github-specific part:
 ;; Github sync. 
 (setq dot-emacs-at-github  "http://korantu.github.com/emacs/dot_emacs.el")
 (defun kdl-sync () 

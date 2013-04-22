@@ -81,6 +81,11 @@
 ;; go highlighting
 (require 'go-mode-load)
 
+;; go flymake
+(require 'flymake)
+(push '(".+\\.go$" flymake-simple-make-init) flymake-allowed-file-name-masks)
+(add-hook 'go-mode-hook 'flymake-mode)
+
 ;; Github-specific part:
 ;; Github sync. 
 (setq dot-emacs-at-github  "http://korantu.github.com/emacs/dot_emacs.el")

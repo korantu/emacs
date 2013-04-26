@@ -33,6 +33,7 @@
 (global-set-key (kbd "C-z") 'undo)
 (global-set-key "\M-/" 'hippie-expand)
 (global-set-key "\M-g" 'goto-line)
+(global-set-key (kbd "M-SPC") 'compile)
 
 ;; hs-mode: http://www.emacswiki.org/emacs/HideShow
 (global-set-key (kbd "C-+") 'hs-toggle-hiding)

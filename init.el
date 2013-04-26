@@ -1,3 +1,5 @@
+;; Should be load-library'd from a ~/.emacs.
+
 ;; Where are we.
 (if load-file-name
     (setq init-place (file-name-directory load-file-name)))
@@ -19,7 +21,6 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (setq make-backup-files nil) ;; Dangerous, but neat.
-(message "Backups are disbled, take note.")
 
 ; Proper buffer naming: http://www.emacswiki.org/emacs/uniquify
 (toggle-uniquify-buffer-names 1) 
@@ -93,23 +94,21 @@
 (push '(".+\\.go$" flymake-simple-make-init) flymake-allowed-file-name-masks)
 (add-hook 'go-mode-hook 'flymake-mode)
 
-;; Github-specific part:
-;; Github sync. 
-(setq dot-emacs-at-github  "http://korantu.github.com/emacs/dot_emacs.el")
-(defun kdl-sync () 
-  "Pull .emacs from github http page."
+;; Fullscreen ( from http://stackoverflow.com/questions/815239/how-to-maximize-emacs-on-windows-at-startup)
+(defun toggle-fullscreen ()
+  "toggles whether the currently selected frame consumes the entire display
+or is decorated with a window border"
   (interactive)
-  ( let
-      ((script (concat "wget -O ~/.emacs " dot-emacs-at-github)))
-  (shell-command script))
-  (load-library "~/.emacs")
-  (message "Sync completed.")
-)
+  (let ((f (selected-frame)))
+    (modify-frame-parameters 
+     f
+     `((fullscreen . ,(if (eq nil (frame-parameter f 'fullscreen)) 
+                          'fullboth
+                        nil))))))
 
-;; This is how functions are done.
-(defun kdl-test ()
-  "Defun test"
-  (interactive)
-  (message "Hi!"))
+(toggle-fullscreen)
+(global-set-key [f12] 'toggle-fullscreen)
 
 (message "Dot-emacs loading complete.")
+
+;; More inspiration (browse-url "http://www.mygooglest.com/fni/.emacs")

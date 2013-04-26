@@ -1,1 +1,2 @@
-My default emacs config.
+My emacs config.
+Add (load-library <PATH-TO-REPO>/init.el) to .emacs.

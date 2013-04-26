@@ -1,3 +1,9 @@
+;; Where are we.
+(if load-file-name
+    (setq init-place (file-name-directory load-file-name)))
+
+(setq elisp-place (concat init-place "elisp"))
+
 ;; Got to LOVE minimalism.
 (tool-bar-mode 0)
 (menu-bar-mode 0)
@@ -69,9 +75,10 @@
 ;; Downloaded from http://cx4a.org/software/auto-complete/index.html
 ;; installed by (load-file "~/log/golang/emacs-autocomplete/auto-complete-1.3.1/etc/install.el")
 
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path elisp-place)
 (require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d//ac-dict")
+(add-to-list 'ac-dictionary-directories 
+	     (concat elisp-place "ac-dict"))
 (ac-config-default)
 
 ;; gocode autocomplete

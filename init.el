@@ -1,5 +1,8 @@
 ;; Should be load-library'd from a ~/.emacs.
 
+;; no startup msg  
+(setq inhibit-startup-message t)
+
 ;; Where are we.
 (if load-file-name
     (setq init-place (file-name-directory load-file-name)))

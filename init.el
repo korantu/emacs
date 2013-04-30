@@ -99,7 +99,7 @@
 (add-hook 'go-mode-hook 'flymake-mode)
 
 ;; Fullscreen ( from http://stackoverflow.com/questions/815239/how-to-maximize-emacs-on-windows-at-startup)
-(defun toggle-fullscreen ()
+(defun toggle-fullscreen-linux ()
   "toggles whether the currently selected frame consumes the entire display
 or is decorated with a window border"
   (interactive)
@@ -110,8 +110,17 @@ or is decorated with a window border"
                           'fullboth
                         nil))))))
 
-(toggle-fullscreen)
+;; From http://emacswiki.org/emacs/FullScreen
+(defun toggle-fullscreen-w32 () (interactive) (shell-command (concat init-place "bin/emacs_fullscreen.exe")))
+
+(defun toggle-fullscreen () (interactive) 
+  (if (eq system-type 'windows-nt) 
+      (toggle-fullscreen-w32) 
+    (toggle-fullscreen-linux)))
+
 (global-set-key [f12] 'toggle-fullscreen)
+
+(toggle-fullscreen)
 
 (message "Dot-emacs loading complete.")
 

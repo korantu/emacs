@@ -91,8 +91,20 @@
 (require 'go-mode-load)
 
 ;; go flymake
+;; From https://gist.github.com/lstoll/2411499
+
 (require 'flymake)
-(push '(".+\\.go$" flymake-simple-make-init) flymake-allowed-file-name-masks)
+ 
+(defun flymake-go-init ()
+(let* ((temp-file (flymake-init-create-temp-buffer-copy
+'flymake-create-temp-inplace))
+(local-file (file-relative-name
+temp-file
+(file-name-directory buffer-file-name))))
+(list "go" (list "build" "-o" "/dev/null" temp-file))))
+ 
+(push '(".+\\.go$" flymake-go-init) flymake-allowed-file-name-masks)
+ 
 (add-hook 'go-mode-hook 'flymake-mode)
 
 ;; Fullscreen ( from http://stackoverflow.com/questions/815239/how-to-maximize-emacs-on-windows-at-startup)

@@ -54,7 +54,7 @@
 (mapc (lambda (browser)  
 	(if browser (setq browse-url-generic-program browser)))
       (mapcar (lambda (f) (locate-file f exec-path))
-	      '("firefox" "chrome" "chromium-browser")))
+	      '("chrome" "chromium-browser" "firefox")))
 
 ;;TODO
 ;; JavaScript check: http://www.emacswiki.org/emacs/FlyMake#toc9

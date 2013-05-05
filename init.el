@@ -122,6 +122,34 @@ or is decorated with a window border"
                           'fullboth
                         nil))))))
 
+;; QT Help; inspired by http://www.emacswiki.org/emacs/QtMode
+;;   and http://furius.ca/pubcode/pub/conf/lib/elisp/blais/qtdoc.el
+;; ido-completing-read is nicer.
+
+(setq qt-help-location "/usr/share/doc/qt4-doc-html/html")
+
+(setq qt-class-names
+      (let* 
+	  ((a-class (lambda (x) (and
+				 (string-match-p "^q" x)
+				 (> (length x) 4))))
+	   (make-nicer (lambda (x) (replace-regexp-in-string "\.html$" "" x))))
+	(let*
+	    ((all-pages (if (file-exists-p qt-help-location) 
+			    (directory-files qt-help-location) 
+			  (progn (message "Qt documentation not found. Check qt-help-location var.") '())))
+	     (classes (delete-if (lambda (x) (not (funcall a-class x))) all-pages)))
+	  (mapcar make-nicer classes))))
+
+(defun qt-class-name-to-path (x) (concat qt-help-location "/" x ".html"))
+
+(defun qt-class-help () (interactive)
+  (browse-url 
+   (qt-class-name-to-path
+    (ido-completing-read "QT:" qt-class-names))))
+
+(global-set-key (kbd "C-c q") 'qt-class-help)
+
 ;; From http://emacswiki.org/emacs/FullScreen
 (defun toggle-fullscreen-w32 () (interactive) (shell-command (concat init-place "bin/emacs_fullscreen.exe")))
 

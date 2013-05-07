@@ -126,7 +126,7 @@ or is decorated with a window border"
 ;;   and http://furius.ca/pubcode/pub/conf/lib/elisp/blais/qtdoc.el
 ;; ido-completing-read is nicer.
 
-(setq qt-help-location "/usr/share/doc/qt4-doc-html/html")
+(defvar qt-help-location "/usr/share/doc/qt4-doc-html/html" "Location of Qt documentation *.html files")
 
 (setq qt-class-names
       (let* 
@@ -137,7 +137,7 @@ or is decorated with a window border"
 	(let*
 	    ((all-pages (if (file-exists-p qt-help-location) 
 			    (directory-files qt-help-location) 
-			  (progn (message "Qt documentation not found. Check qt-help-location var.") '())))
+			  (progn (message "Qt documentation not found. Please customize qt-help-location var.") '())))
 	     (classes (delete-if (lambda (x) (not (funcall a-class x))) all-pages)))
 	  (mapcar make-nicer classes))))
 

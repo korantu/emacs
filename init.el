@@ -96,6 +96,11 @@
 ;; go flymake
 ;; From https://gist.github.com/lstoll/2411499
 
+;; org-mode, a-shell: link (async)
+(require 'org)
+(defun async-open (x) (interactive "s") (async-shell-command x))
+(org-add-link-type "a-shell" 'async-open)
+
 (require 'flymake)
  
 (defun flymake-go-init ()

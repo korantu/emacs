@@ -162,6 +162,9 @@ or is decorated with a window border"
 
 (toggle-fullscreen)
 
-(message "Dot-emacs loading complete.")
+;; Servers
+(server-start)
+(setenv "EDITOR" "emacsclient")
 
+(message "Dot-emacs loading complete.")
 ;; More inspiration (browse-url "http://www.mygooglest.com/fni/.emacs")

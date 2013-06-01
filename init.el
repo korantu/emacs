@@ -38,6 +38,8 @@
 (global-set-key "\M-g" 'goto-line)
 (global-set-key (kbd "M-SPC") 'compile)
 
+(global-set-key (kbd "C-c o") 'ff-find-other-file)
+
 ;; hs-mode: http://www.emacswiki.org/emacs/HideShow
 (global-set-key (kbd "C-+") 'hs-toggle-hiding)
 (global-set-key (kbd "C-\\") 'hs-hide-all)

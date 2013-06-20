@@ -98,6 +98,10 @@
 ;; go highlighting
 (require 'go-mode-load)
 
+;; goflymake from https://github.com/dougm/goflymake
+(add-to-list 'load-path (concat (getenv "GOPATH") "/src/github.com/dougm/goflymake"))
+(require 'go-flymake nil 1)
+
 ;; go flymake
 ;; From https://gist.github.com/lstoll/2411499
 
@@ -105,21 +109,6 @@
 (require 'org)
 (defun async-open (x) (interactive "s") (async-shell-command x))
 (org-add-link-type "a-shell" 'async-open)
-
-(require 'flymake)
- 
-(defun flymake-go-init ()
-(let* ((temp-file (flymake-init-create-temp-buffer-copy
-'flymake-create-temp-inplace))
-(local-file (file-relative-name
-temp-file
-(file-name-directory buffer-file-name))))
-(list "go" (list "build" "-o" "/dev/null" temp-file))))
-;(list "go" (list "build" "-o" "/dev/null" temp-file))))
- 
-(push '(".+\\.go$" flymake-go-init) flymake-allowed-file-name-masks)
- 
-(add-hook 'go-mode-hook 'flymake-mode)
 
 ;; Fullscreen ( from http://stackoverflow.com/questions/815239/how-to-maximize-emacs-on-windows-at-startup)
 (defun toggle-fullscreen-linux ()

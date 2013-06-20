@@ -112,6 +112,7 @@
 temp-file
 (file-name-directory buffer-file-name))))
 (list "go" (list "build" "-o" "/dev/null" temp-file))))
+;(list "go" (list "build" "-o" "/dev/null" temp-file))))
  
 (push '(".+\\.go$" flymake-go-init) flymake-allowed-file-name-masks)
  

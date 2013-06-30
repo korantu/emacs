@@ -116,9 +116,7 @@
 ;; goflymake from https://github.com/dougm/goflymake
 (add-to-list 'load-path (concat (getenv "GOPATH") "/src/github.com/dougm/goflymake"))
 (require 'go-flymake nil 1)
-
-;; go flymake
-;; From https://gist.github.com/lstoll/2411499
+;(require 'go-flycheck nil 1)
 
 ;; org-mode, a-shell: link (async)
 (require 'org)

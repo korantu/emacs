@@ -69,6 +69,10 @@
       (mapcar (lambda (f) (locate-file f exec-path))
 	      '("chrome" "chromium-browser" "firefox")))
 
+;; Hooks
+(add-hook 'go-mode-hook 'hs-minor-mode)
+(add-hook 'elisp-mode-hook 'hs-minor-mode)
+
 ;;TODO
 ;; JavaScript check: http://www.emacswiki.org/emacs/FlyMake#toc9
 (setq js-v8-shell "/home/kdl/tools/v8/d8")

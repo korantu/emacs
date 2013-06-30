@@ -40,6 +40,14 @@
 
 (global-set-key (kbd "C-c o") 'ff-find-other-file)
 
+; 8,9,0 - C-x: remember; C-M-x: jump accordingly
+(global-set-key (kbd "C-0") (lambda () (interactive) (point-to-register ?1)))
+(global-set-key (kbd "C-M-0") (lambda () (interactive) (jump-to-register ?1)))
+(global-set-key (kbd "C-9") (lambda () (interactive) (point-to-register ?2)))
+(global-set-key (kbd "C-M-9") (lambda () (interactive) (jump-to-register ?2)))
+(global-set-key (kbd "C-8") (lambda () (interactive) (point-to-register ?3)))
+(global-set-key (kbd "C-M-8") (lambda () (interactive) (jump-to-register ?3)))
+
 ;; hs-mode: http://www.emacswiki.org/emacs/HideShow
 (global-set-key (kbd "C-+") 'hs-toggle-hiding)
 (global-set-key (kbd "C-\\") 'hs-hide-all)

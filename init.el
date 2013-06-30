@@ -57,6 +57,9 @@
     (add-hook 'js-mode-hook       'hs-minor-mode)
     (add-hook 'lisp-mode-hook       'hs-minor-mode)
 
+;; Tags
+(setq tags-case-fold-search nil)
+
 ;; Browser
 (setq 
  browse-url-browser-function 'browse-url-generic)

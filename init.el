@@ -44,7 +44,7 @@
 ; TODO WTF - cannot make it a function! Failed to pass registers & kbd is also playing funny, probably expanding too early.
 ; But registers as arguments is the most interesting part.
 (global-set-key (kbd "C-0") (lambda () (interactive) (point-to-register ?1)))
-(global-set-key (kbd "C-M-0") (lambda () (interactive) (jump-to-register ?1) (delete-other-windows))
+(global-set-key (kbd "C-M-0") (lambda () (interactive) (jump-to-register ?1) (delete-other-windows)))
 (global-set-key (kbd "C-9") (lambda () (interactive) (point-to-register ?2)))
 (global-set-key (kbd "C-M-9") (lambda () (interactive) (jump-to-register ?2) (delete-other-windows)))
 (global-set-key (kbd "C-8") (lambda () (interactive) (point-to-register ?3)))

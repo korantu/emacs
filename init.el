@@ -178,8 +178,9 @@ or is decorated with a window border"
 (toggle-fullscreen)
 
 ;; Servers
-(server-start)
-(setenv "EDITOR" "emacsclient")
+(if (not (eq system-type 'windows-nt))
+ (server-start)
+ (setenv "EDITOR" "emacsclient"))
 
 (message "Dot-emacs loading complete.")
 ;; More inspiration (browse-url "http://www.mygooglest.com/fni/.emacs")

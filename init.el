@@ -1,5 +1,4 @@
 ;; Should be load-library'd from a ~/.emacs.
-
 ;; no startup msg  
 (setq inhibit-startup-message t)
 
@@ -8,6 +7,8 @@
     (setq init-place (file-name-directory load-file-name)))
 
 (setq elisp-place (concat init-place "elisp"))
+(add-to-list 'load-path elisp-place)
+
 
 ;; Got to LOVE minimalism.
 (tool-bar-mode 0)
@@ -75,6 +76,10 @@
 (add-hook 'go-mode-hook 'hs-minor-mode)
 (add-hook 'elisp-mode-hook 'hs-minor-mode)
 
+;; Eldoc
+(require 'go-eldoc) ;; 
+(add-hook 'go-mode-hook 'go-eldoc-setup)
+
 ;;TODO
 ;; JavaScript check: http://www.emacswiki.org/emacs/FlyMake#toc9
 (setq js-v8-shell "/home/kdl/tools/v8/d8")
@@ -99,7 +104,6 @@
 ;; Downloaded from http://cx4a.org/software/auto-complete/index.html
 ;; installed by (load-file "~/log/golang/emacs-autocomplete/auto-complete-1.3.1/etc/install.el")
 
-(add-to-list 'load-path elisp-place)
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories 
 	     (concat elisp-place "ac-dict"))
@@ -181,6 +185,8 @@ or is decorated with a window border"
 (if (not (eq system-type 'windows-nt))
  (server-start)
  (setenv "EDITOR" "emacsclient"))
+(setenv "EDITOR" "emacsclient")
+
 
 (message "Dot-emacs loading complete.")
 ;; More inspiration (browse-url "http://www.mygooglest.com/fni/.emacs")

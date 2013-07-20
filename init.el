@@ -8,11 +8,16 @@
     (setq init-place (file-name-directory load-file-name)))
 
 (setq elisp-place (concat init-place "elisp"))
+(setq theme-place (concat init-place "theme"))
 
 ;; Got to LOVE minimalism.
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
+
+;; Looks
+(add-to-list 'custom-theme-load-path theme-place)
+(load-theme 'solarized-dark)
 
 ;; Interactively Do Things: 
 ;; http://www.emacswiki.org/emacs/InteractivelyDoThings

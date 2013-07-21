@@ -15,6 +15,9 @@
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
 
+;; Themes
+(load-theme 'tango-dark t)
+
 ;; Interactively Do Things: 
 ;; http://www.emacswiki.org/emacs/InteractivelyDoThings
 (require 'ido)
@@ -31,7 +34,7 @@
 
 ;; Color settings. 
 (ansi-color-for-comint-mode-on)
-(set-background-color "light grey")
+;; (set-background-color "light grey")
 
 ;; Key bindings.
 (global-set-key (kbd "C-z") 'undo)

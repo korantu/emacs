@@ -105,8 +105,9 @@
 	     (concat elisp-place "ac-dict"))
 (ac-config-default)
 
-;; gofmt before save
-(add-hook 'before-save-hook #'gofmt-before-save)
+;; gofmt before save, except on windows
+(if (not (eq system-type 'windows-nt))
+(add-hook 'before-save-hook #'gofmt-before-save))
 
 ;; gocode autocomplete
 (require 'go-autocomplete)

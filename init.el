@@ -48,9 +48,11 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 
 ;; Atoms
-(defun (global-set-key (kbd "C-t") (lambda () (interactive) 
+(defun atoms-tagged () (interactive)
   (occur (concat "#" (word-at-point))) 
-  (other-window 1)))
+  (other-window 1))
+
+(global-set-key (kbd "C-t") 'atoms-tagged)
 
 ; 8,9,0 - C-x: remember; C-M-x: jump accordingly
 ; TODO WTF - cannot make it a function! Failed to pass registers & kbd is also playing funny, probably expanding too early.

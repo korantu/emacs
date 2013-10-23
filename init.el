@@ -108,7 +108,7 @@
                '("\\.js\\'" flymake-closure-init)))
 
 ;; Load it for javascript.
-(add-hook 'js-mode-hook 'flymake-mode)
+;; (add-hook 'js-mode-hook 'flymake-mode)
 
 ;; Autocomplete
 ;; http://cx4a.org/software/auto-complete/manual.html#Installation

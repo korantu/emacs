@@ -44,6 +44,14 @@
 
 (global-set-key (kbd "C-c o") 'ff-find-other-file)
 
+;; Agenda
+(global-set-key (kbd "C-c a") 'org-agenda)
+
+;; Atoms
+(defun (global-set-key (kbd "C-t") (lambda () (interactive) 
+  (occur (concat "#" (word-at-point))) 
+  (other-window 1)))
+
 ; 8,9,0 - C-x: remember; C-M-x: jump accordingly
 ; TODO WTF - cannot make it a function! Failed to pass registers & kbd is also playing funny, probably expanding too early.
 ; But registers as arguments is the most interesting part.
